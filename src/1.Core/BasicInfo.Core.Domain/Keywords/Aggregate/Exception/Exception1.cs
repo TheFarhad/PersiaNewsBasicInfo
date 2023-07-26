@@ -1,4 +1,4 @@
-﻿namespace BasicInfo.Core.Domain.Aggregate.Exception;
+﻿namespace BasicInfo.Core.Domain.Keywords.Aggregate.Exception;
 
 using Sky.App.Core.Domain.Aggregate;
 

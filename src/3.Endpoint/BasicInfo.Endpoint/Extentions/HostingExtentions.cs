@@ -1,9 +1,9 @@
 ﻿namespace BasicInfo.Endpoint.Extentions;
 
 using Microsoft.EntityFrameworkCore;
-using Sky.App.Infra.Data.Sql.Query;
 using Sky.App.Endpoint.Api.Extentions;
-using Sky.App.Infra.Data.Sql.Command;
+using BasicInfo.Infra.Data.Sql.Query.Context;
+using BasicInfo.Infra.Data.Sql.Command.Context;
 using Sky.App.Infra.Data.Sql.Command.Interceptor;
 
 public static class HostingExtentions
@@ -13,14 +13,14 @@ public static class HostingExtentions
         var commandDbConn = source.Configuration.GetConnectionString("BasicInfoCommandDbConn");
         var queryDbConn = source.Configuration.GetConnectionString("BasicInfoQueryDbConn");
 
-        source.Services.AddDbContext<CommandDbContext>(_ =>
+        source.Services.AddDbContext<BasicInfoCommandDbContext>(_ =>
         {
             _
             .UseSqlServer(commandDbConn)
             .AddInterceptors(new CommandDbContextInterceptor());
         });
 
-        source.Services.AddDbContext<QueryDbContext>(_ =>
+        source.Services.AddDbContext<BasicInfoQueryDbContext>(_ =>
         {
             _.UseSqlServer(queryDbConn);
         });

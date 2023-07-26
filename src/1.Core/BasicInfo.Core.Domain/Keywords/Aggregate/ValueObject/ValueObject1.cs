@@ -1,4 +1,4 @@
-﻿namespace BasicInfo.Core.Domain.Aggregate.ValueObject;
+﻿namespace BasicInfo.Core.Domain.Keywords.Aggregate.ValueObject;
 
 using Sky.App.Core.Domain.Aggregate;
 
