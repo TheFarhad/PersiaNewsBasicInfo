@@ -37,17 +37,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.Infrastructure", "2.Infra
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.Endpoint", "3.Endpoint", "{81361E11-2571-4301-B4F0-D3B568447B52}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicInfo.Tests.E2E", "test\3.Endpoint\BasicInfo.Tests.E2E\BasicInfo.Tests.E2E.csproj", "{1BEEFE33-7FC2-4EC5-9FC5-1AF7E1BD25FF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BasicInfo.Tests.E2E", "test\3.Endpoint\BasicInfo.Tests.E2E\BasicInfo.Tests.E2E.csproj", "{1BEEFE33-7FC2-4EC5-9FC5-1AF7E1BD25FF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicInfo.Infra.Tests.Integration", "test\2.Infrastructure\BasicInfo.Infra.Tests.Integration\BasicInfo.Infra.Tests.Integration.csproj", "{49BE4742-433F-438E-8165-3F9FF17DDBC1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BasicInfo.Infra.Tests.Integration", "test\2.Infrastructure\BasicInfo.Infra.Tests.Integration\BasicInfo.Infra.Tests.Integration.csproj", "{49BE4742-433F-438E-8165-3F9FF17DDBC1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicInfo.Infra.Tests.Unit", "test\2.Infrastructure\BasicInfo.Infra.Tests.Unit\BasicInfo.Infra.Tests.Unit.csproj", "{954BD50B-834C-44CB-9894-84A8A1B6077F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BasicInfo.Infra.Tests.Unit", "test\2.Infrastructure\BasicInfo.Infra.Tests.Unit\BasicInfo.Infra.Tests.Unit.csproj", "{954BD50B-834C-44CB-9894-84A8A1B6077F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicInfo.Application.Tests.Integration", "test\1.Core\BasicInfo.Application.Tests.Integration\BasicInfo.Application.Tests.Integration.csproj", "{802216A6-DEE6-4EAD-9765-3D418DF3C9C4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BasicInfo.Application.Tests.Integration", "test\1.Core\BasicInfo.Application.Tests.Integration\BasicInfo.Application.Tests.Integration.csproj", "{802216A6-DEE6-4EAD-9765-3D418DF3C9C4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicInfo.Application.Tests.Unit", "test\1.Core\BasicInfo.Application.Tests.Unit\BasicInfo.Application.Tests.Unit.csproj", "{C2F9F3A5-CE70-4A45-9076-24EC77D90B5D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BasicInfo.Application.Tests.Unit", "test\1.Core\BasicInfo.Application.Tests.Unit\BasicInfo.Application.Tests.Unit.csproj", "{C2F9F3A5-CE70-4A45-9076-24EC77D90B5D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicInfo.Domain.Tests.Unit", "test\1.Core\BasicInfo.Domain.Tests.Unit\BasicInfo.Domain.Tests.Unit.csproj", "{A6A6F1FA-724A-478C-9BE2-7A20F06A8732}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BasicInfo.Domain.Tests.Unit", "test\1.Core\BasicInfo.Domain.Tests.Unit\BasicInfo.Domain.Tests.Unit.csproj", "{A6A6F1FA-724A-478C-9BE2-7A20F06A8732}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

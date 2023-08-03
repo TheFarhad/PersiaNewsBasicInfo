@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<TargetFramework>net6.0</TargetFramework>
@@ -8,7 +8,10 @@
 
 	<ItemGroup>
 		<PackageReference Include="Sky.Kernel" Version="1.0.4" />
-		<PackageReference Include="Sky.App.Infra.Data.Sql.Command" Version="1.0.2" />
+		<PackageReference Include="Sky.App.Infra.Data.Sql.Command" Version="1.1.1" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.8" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.8" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.8" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -17,10 +20,6 @@
 		<ProjectReference Include="..\..\..\1.Core\BasicInfo.Core.Domain.Service\BasicInfo.Core.Domain.Service.csproj" />
 		<ProjectReference Include="..\..\..\1.Core\BasicInfo.Core.Domain\BasicInfo.Core.Domain.csproj" />
 		<ProjectReference Include="..\BasicInfo.Infra.Data.Sql.Common\BasicInfo.Infra.Data.Sql.Common.csproj" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="Configurations\" />
 	</ItemGroup>
 
 </Project>

@@ -1,7 +1,11 @@
 ﻿namespace BasicInfo.Core.Application.Command.Keywords;
 
 using System.Threading.Tasks;
+using Sky.App.Core.Domain.Shared;
+using Sky.App.Core.Service.Command;
 using Sky.App.Core.Contract.Application.Command;
+using Core.Contract.Application.Command;
+using Sky.App.Core.Domain.Aggregate;
 
 public class KeywordEditCommand : ICommand<KeywordEditData>
 {
@@ -10,17 +14,22 @@ public class KeywordEditCommand : ICommand<KeywordEditData>
     public string Description { get; set; }
 }
 
-public class KeywordEditCommandHandler : ICommandHandler<KeywordEditCommand, KeywordEditData>
+public class KeywordEditCommandHandler : CommandHandler<KeywordEditCommand, KeywordEditData>
 {
+    private readonly IKeywordCommandRepository _repository;
 
-    public KeywordEditCommandHandler()
+    public KeywordEditCommandHandler(IKeywordCommandRepository repository)
     {
-
+        _repository = repository;
     }
 
-    public Task<CommandResult<KeywordEditData>> HandleAsync(KeywordEditCommand Source)
+    public override async Task<CommandResult<KeywordEditData>> HandleAsync(KeywordEditCommand Source)
     {
-        throw new NotImplementedException();
+        var model = await _repository.GetAsync(Code.Instance(Source.Code));
+        model?.Edit(Title.Instance(Source.Title), Description.Instance(Source.Description));
+        await _repository.SaveAsync();
+
+        return await OK(new KeywordEditData());
     }
 }
 

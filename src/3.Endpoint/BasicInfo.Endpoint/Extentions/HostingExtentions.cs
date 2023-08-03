@@ -1,37 +1,53 @@
 ﻿namespace BasicInfo.Endpoint.Extentions;
 
 using Microsoft.EntityFrameworkCore;
+using Sky.Kernel.Filing.Wireup;
+using Sky.Kernel.Identity.Wireup;
+using Sky.Kernel.Hashing.Wireup;
+using Sky.Kernel.Serializing.Wireup;
 using Sky.App.Endpoint.Api.Extentions;
-using BasicInfo.Infra.Data.Sql.Query.Context;
-using BasicInfo.Infra.Data.Sql.Command.Context;
 using Sky.App.Infra.Data.Sql.Command.Interceptor;
+using Infra.Data.Sql.Query.Context;
+using Infra.Data.Sql.Command.Context;
 
 public static class HostingExtentions
 {
-    public static WebApplication ServicesWireup(this WebApplicationBuilder source)
+    public static void HostingWireup(this WebApplicationBuilder source) =>
+         source
+        .ServicesWireup()
+        .MiddlewaresWireup();
+
+    private static WebApplication ServicesWireup(this WebApplicationBuilder source)
     {
-        var commandDbConn = source.Configuration.GetConnectionString("BasicInfoCommandDbConn");
-        var queryDbConn = source.Configuration.GetConnectionString("BasicInfoQueryDbConn");
+        var configration = source.Configuration;
+
+        var commandDbConn = configration.GetConnectionString("BasicInfoCommandDbConn");
+        var queryDbConn = configration.GetConnectionString("BasicInfoQueryDbConn");
 
         source.Services.AddDbContext<BasicInfoCommandDbContext>(_ =>
         {
             _
             .UseSqlServer(commandDbConn)
-            .AddInterceptors(new CommandDbContextInterceptor());
-        });
-
-        source.Services.AddDbContext<BasicInfoQueryDbContext>(_ =>
+            .AddInterceptors(new EventSourcingCommandDbContextInterceptor());
+        })
+        .AddDbContext<BasicInfoQueryDbContext>(_ =>
         {
-            _.UseSqlServer(queryDbConn);
-        });
+            _
+            .UseSqlServer(queryDbConn);
+        })
+        .FilerWireup()
+        .UploaderWireup()
+        .NewtonSoftSerializerWireup()
+        .BCryptHashingWireup()
+        .FakeUserServiceWireup()
+        .WebApiWireup("Sky", "BasicInfo")
+        .AddEndpointsApiExplorer()
+        .AddSwaggerGen();
 
-        source.Services.WebApiWireup("Sky", "BasicInfo");
-        source.Services.AddEndpointsApiExplorer();
-        source.Services.AddSwaggerGen();
         return source.Build();
     }
 
-    public static void MiddlewaresWireup(this WebApplication source)
+    private static void MiddlewaresWireup(this WebApplication source)
     {
         if (source.Environment.IsDevelopment())
         {

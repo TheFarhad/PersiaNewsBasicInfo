@@ -7,7 +7,7 @@ using Sky.App.Core.Domain.Aggregate;
 
 public class Keyword : Aggregate
 {
-    public Title Title { get; private set; } //unique
+    public Title Title { get; private set; }
     public Description Description { get; private set; }
 
     private Keyword() { }
@@ -15,19 +15,20 @@ public class Keyword : Aggregate
 
     public static Keyword Instnce(Title title, Description description) => new Keyword(title, description);
 
-    public void Edit(Title title, Description description) =>
-         Apply(KeywordEdited.Instance(Code.Value, title.Value, description.Value));
-
     private void Init(Title title, Description description, Act action)
     {
-        Apply(KeywordCreated.Instance(Code.Value, title.Value, description.Value));
+        Apply(KeywordCreatedEvent.Instance(Code.Value, title.Value, description.Value));
         action?.Invoke();
     }
 
-    private void On(KeywordCreated source) =>
+    public void Edit(Title title, Description description) =>
+         Apply(KeywordEditedEvent.Instance(Code.Value, title.Value, description.Value));
+
+
+    private void On(KeywordCreatedEvent source) =>
         SetProperties(source.Code, source.Title, source.Description);
 
-    private void On(KeywordEdited source) =>
+    private void On(KeywordEditedEvent source) =>
         SetProperties(source.Code, source.Title, source.Description);
 
     private void SetProperties(Guid code, string title, string description)

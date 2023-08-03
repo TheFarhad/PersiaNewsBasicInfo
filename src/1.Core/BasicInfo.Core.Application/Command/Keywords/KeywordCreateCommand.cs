@@ -1,8 +1,11 @@
 ﻿namespace BasicInfo.Core.Application.Command.Keywords;
 
-using System;
 using System.Threading.Tasks;
 using Sky.App.Core.Contract.Application.Command;
+using Sky.App.Core.Domain.Shared;
+using Sky.App.Core.Service.Command;
+using Contract.Application.Command;
+using Domain.Keywords.Aggregate.Entity;
 
 public class KeywordCreateCommand : ICommand<KeywordCreateData>
 {
@@ -10,17 +13,21 @@ public class KeywordCreateCommand : ICommand<KeywordCreateData>
     public string Description { get; set; }
 }
 
-public class KeywordCreateCommandHandler : ICommandHandler<KeywordCreateCommand, KeywordCreateData>
+public class KeywordCreateCommandHandler : CommandHandler<KeywordCreateCommand, KeywordCreateData>
 {
+    private readonly IKeywordCommandRepository _repository;
 
-    public KeywordCreateCommandHandler()
+    public KeywordCreateCommandHandler(IKeywordCommandRepository repository)
     {
-
+        _repository = repository;
     }
 
-    public Task<CommandResult<KeywordCreateData>> HandleAsync(KeywordCreateCommand Source)
+    public override async Task<CommandResult<KeywordCreateData>> HandleAsync(KeywordCreateCommand Source)
     {
-        throw new NotImplementedException();
+        var keyword = Keyword.Instnce(Title.Instance(Source.Title), Description.Instance(Source.Description));
+        await _repository.AddAsync(keyword);
+        await _repository.SaveAsync();
+        return await OK(new KeywordCreateData());
     }
 }
 
