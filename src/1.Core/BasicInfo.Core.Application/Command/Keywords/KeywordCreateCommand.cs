@@ -6,11 +6,13 @@ using Sky.App.Core.Domain.Shared;
 using Sky.App.Core.Service.Command;
 using Contract.Application.Command;
 using Domain.Keywords.Aggregate.Entity;
+using BasicInfo.Core.Domain.Keywords.Aggregate.Enumers;
 
 public class KeywordCreateCommand : ICommand<KeywordCreateData>
 {
     public string Title { get; set; }
     public string Description { get; set; }
+    public string Status { get; set; }
 }
 
 public class KeywordCreateCommandHandler : CommandHandler<KeywordCreateCommand, KeywordCreateData>
@@ -24,7 +26,7 @@ public class KeywordCreateCommandHandler : CommandHandler<KeywordCreateCommand, 
 
     public override async Task<CommandResult<KeywordCreateData>> HandleAsync(KeywordCreateCommand Source)
     {
-        var keyword = Keyword.Instnce(Title.Instance(Source.Title), Description.Instance(Source.Description));
+        var keyword = Keyword.Instnce(Title.Instance(Source.Title), Description.Instance(Source.Description), KeywordStatus.Instance(Source.Status));
         await _repository.AddAsync(keyword);
         await _repository.SaveAsync();
         return await OK(new KeywordCreateData());
