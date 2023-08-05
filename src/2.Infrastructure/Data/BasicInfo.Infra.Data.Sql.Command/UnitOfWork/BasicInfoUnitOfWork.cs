@@ -2,7 +2,7 @@
 
 using Sky.App.Infra.Data.Sql.Command;
 using Context;
-using Core.Contract.Infrastructure.Command;
+using Core.Contract.Infra.Command;
 
 public class BasicInfoUnitOfWork : UnitOfWork<BasicInfoCommandDbContext>, IBasicInfoUnitOfWork
 {

@@ -13,7 +13,7 @@
 
 	<ItemGroup>
 		<PackageReference Include="Sky.Kernel" Version="1.0.4" />
-		<PackageReference Include="Sky.App.Infra.Data.Sql.Query" Version="1.0.1" />
+		<PackageReference Include="Sky.App.Infra.Data.Sql.Query" Version="1.1.0" />
 	</ItemGroup>
 
 </Project>

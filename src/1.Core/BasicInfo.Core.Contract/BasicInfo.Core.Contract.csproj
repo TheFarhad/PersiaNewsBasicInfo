@@ -11,8 +11,13 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Sky.App.Core.Contract" Version="1.1.0" />
+		<PackageReference Include="Sky.App.Core.Contract" Version="1.1.3" />
 		<PackageReference Include="Sky.Kernel" Version="1.0.4" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Infra\Shared\" />
+	  <Folder Include="Service\Shared\" />
 	</ItemGroup>
 
 </Project>

@@ -10,7 +10,7 @@
 		<PackageReference Include="Sky.Kernel" Version="1.0.4" />
 		<PackageReference Include="Sky.Kernel.Identity" Version="1.0.2" />
 		<PackageReference Include="Sky.Kernel.Serializing" Version="1.0.1" />
-		<PackageReference Include="Sky.App.Endpoint.Api" Version="1.0.3" />
+		<PackageReference Include="Sky.App.Endpoint.Api" Version="1.1.0" />
 		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.8" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.8" />

@@ -7,8 +7,13 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Sky.App.Core.Domain" Version="1.0.2" />
+		<PackageReference Include="Sky.App.Core.Domain" Version="1.1.1" />
 		<PackageReference Include="Sky.Kernel" Version="1.0.4" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Keywords\Aggregate\Exception\ValueObjects\" />
+	  <Folder Include="Shared\" />
 	</ItemGroup>
 
 </Project>

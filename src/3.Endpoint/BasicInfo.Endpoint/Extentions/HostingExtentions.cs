@@ -6,7 +6,7 @@ using Sky.Kernel.Identity.Wireup;
 using Sky.Kernel.Hashing.Wireup;
 using Sky.Kernel.Serializing.Wireup;
 using Sky.App.Endpoint.Api.Extentions;
-using Sky.App.Infra.Data.Sql.Command.Interceptor;
+using Sky.App.Infra.Data.Sql.Command.Interceptors;
 using Infra.Data.Sql.Query.Context;
 using Infra.Data.Sql.Command.Context;
 

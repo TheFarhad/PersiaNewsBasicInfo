@@ -2,27 +2,24 @@
 
 using Microsoft.AspNetCore.Mvc;
 using Sky.App.Endpoint.Api.Controller;
-using Core.Application.Command.Keywords;
+using Core.Contract.Service.Command.Keywords;
+using Core.Contract.Service.Query.Keywords;
 
 [ApiController]
 [Route("api/[Conteroller]")]
 public class KeywordController : ApiController
 {
-    [HttpGet("/fetch-all")]
-    public async Task<IActionResult> ListAsync()
-    {
-        // query dispatcher...
-
-        return Ok();
-    }
+    [HttpPost("/list-keyword")]
+    public async Task<IActionResult> SearchAsync(KeywordSearchByTitleAndStatusQuery source) =>
+        await GetAsync<KeywordSearchByTitleAndStatusQuery, KeywordSearchResult>(source);
 
     [HttpPost("/create-keyword")]
     public async Task<IActionResult> CreateAsync(KeywordCreateCommand source) =>
-        await AddAsync<KeywordCreateCommand, KeywordCreateData>(source);
+        await AddAsync<KeywordCreateCommand, KeywordCreatePayload>(source);
 
     [HttpPost("/edit-keyword")]
     public async Task<IActionResult> EditAsync(KeywordEditCommand source) =>
-        await EditAsync<KeywordEditCommand, KeywordEditData>(source);
+        await EditAsync<KeywordEditCommand, KeywordEditPayload>(source);
 
     [HttpPost("/remove-keyword")]
     public async Task<IActionResult> RemoveAsync(KeywordRemoveCommand source) =>

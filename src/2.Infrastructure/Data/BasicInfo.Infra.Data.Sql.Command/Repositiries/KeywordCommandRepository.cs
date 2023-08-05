@@ -3,9 +3,9 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Sky.App.Infra.Data.Sql.Command;
-using Sky.App.Core.Contract.Infrastructure.Command;
+using Sky.App.Core.Contract.Infra.Command;
 using Context;
-using Core.Contract.Application.Command;
+using Core.Contract.Infra.Command;
 using Core.Domain.Keywords.Aggregate.Entity;
 
 public class KeywordCommandRepository : CommandRepository<Keyword, BasicInfoCommandDbContext>, IKeywordCommandRepository
