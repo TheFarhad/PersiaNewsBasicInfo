@@ -15,11 +15,15 @@ public class KeywordQueryRepository : QueryRepository<BasicInfoQueryDbContext>, 
 
     public async Task<KeywordSearchResult> ListAsync(KeywordSearchByTitleAndStatusQuery source)
     {
+        var result = new KeywordSearchResult();
+
         var query = Context.Keywords.AsNoTracking();
+
+        if (source.NeededTotalCount) result.Total = await query.CountAsync();
+
         if (source.Title.IsNotEmpty()) query = query.Where(_ => _.Title.Contains(source.Title));
         if (source.Status.IsNotEmpty()) query = query.Where(_ => _.Status == source.Status);
 
-        var result = new KeywordSearchResult();
         result.Items = await query
             .OrderBy(source.SortBy, source.SortAscending)
             .Skip(source.Skip)

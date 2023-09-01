@@ -13,6 +13,7 @@ public class KeywordSearchByTitleAndStatusQuery : PageQuery<KeywordSearchResult>
 public class KeywordSearchResult
 {
     public List<KeywordSearchItem> Items { get; set; } = new();
+    public int Total { get; set; }
 }
 
 public class KeywordSearchItem
