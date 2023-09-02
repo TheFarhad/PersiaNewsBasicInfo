@@ -5,16 +5,17 @@ using Sky.App.Core.Contract.Services.Query;
 using Contract.Infra.Query;
 using Contract.Service.Query.Keywords;
 
-public class KeywordSearchByTitleAndStatusQueryHandler : QueryHandler<KeywordSearchByTitleAndStatusQuery, KeywordSearchResult>
+public class KeywordSearchByTitleAndStatusQueryHandler : QueryHandler<KeywordSearchByTitleAndStatusQuery, KeywordSearchByTitleAndStatusPayload>
 {
     private readonly IKeywordQueryRepository _repository;
 
     public KeywordSearchByTitleAndStatusQueryHandler(IKeywordQueryRepository repository) =>
             _repository = repository;
 
-    public override async Task<QueryResult<KeywordSearchResult>> HandleAsync(KeywordSearchByTitleAndStatusQuery source)
+    public override async Task<QueryResult<KeywordSearchByTitleAndStatusPayload>> HandleAsync(KeywordSearchByTitleAndStatusQuery source)
     {
         var payload = await _repository.ListAsync(source);
-        return await OK(payload);
+        Result = payload.Items.Any() ? await OK(payload) : await NotFound();
+        return Result;
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace BasicInfo.Infra.Data.Sql.Command.Converters;
+﻿namespace BasicInfo.Infra.Data.Sql.Command.Converters.Keywords;
 
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Core.Domain.Keywords.Aggregate.Enumers;

@@ -13,9 +13,9 @@ public class KeywordQueryRepository : QueryRepository<BasicInfoQueryDbContext>, 
 {
     public KeywordQueryRepository(BasicInfoQueryDbContext context) : base(context) { }
 
-    public async Task<KeywordSearchResult> ListAsync(KeywordSearchByTitleAndStatusQuery source)
+    public async Task<KeywordSearchByTitleAndStatusPayload> ListAsync(KeywordSearchByTitleAndStatusQuery source)
     {
-        var result = new KeywordSearchResult();
+        var result = new KeywordSearchByTitleAndStatusPayload();
 
         var query = Context.Keywords.AsNoTracking();
 

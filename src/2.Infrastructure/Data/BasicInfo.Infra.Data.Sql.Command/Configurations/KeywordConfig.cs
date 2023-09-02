@@ -3,7 +3,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Sky.App.Infra.Data.Sql.Command.Configuration;
-using Converters;
+using Converters.Keywords;
 using Core.Domain.Keywords.Aggregate.Entity;
 
 public class KeywordConfig : IEntityConfig<Keyword>

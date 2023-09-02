@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.6.3" />
+		<PackageReference Include="SpecFlow.Plus.LivingDocPlugin" Version="3.9.57" />
+		<PackageReference Include="SpecFlow.xUnit" Version="3.9.74" />
+		<PackageReference Include="xunit" Version="2.5.0" />
+		<PackageReference Include="xunit.runner.visualstudio" Version="2.5.0">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="FluentAssertions" Version="6.11.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="HostNetCoreApp" Version="1.0.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\..\src\1.Core\BasicInfo.Core.Application\BasicInfo.Core.Application.csproj" />
+		<ProjectReference Include="..\..\..\src\1.Core\BasicInfo.Core.Contract\BasicInfo.Core.Contract.csproj" />
+		<ProjectReference Include="..\..\..\src\1.Core\BasicInfo.Core.Domain.Service\BasicInfo.Core.Domain.Service.csproj" />
+		<ProjectReference Include="..\..\..\src\1.Core\BasicInfo.Core.Domain\BasicInfo.Core.Domain.csproj" />
+		<ProjectReference Include="..\..\..\src\2.Infrastructure\Data\BasicInfo.Infra.Data.Sql.Command\BasicInfo.Infra.Data.Sql.Command.csproj" />
+		<ProjectReference Include="..\..\..\src\2.Infrastructure\Data\BasicInfo.Infra.Data.Sql.Common\BasicInfo.Infra.Data.Sql.Common.csproj" />
+		<ProjectReference Include="..\..\..\src\2.Infrastructure\Data\BasicInfo.Infra.Data.Sql.Query\BasicInfo.Infra.Data.Sql.Query.csproj" />
+		<ProjectReference Include="..\..\..\src\3.Endpoint\BasicInfo.Endpoint\BasicInfo.Endpoint.csproj" />
+	</ItemGroup>
+
+</Project>

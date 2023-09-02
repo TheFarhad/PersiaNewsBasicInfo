@@ -8,5 +8,5 @@ public class KeywordRemovedEvent : IEvent
 
     private KeywordRemovedEvent(string code) => Code = code;
 
-    public static KeywordRemovedEvent Instance(string code) => new KeywordRemovedEvent(code);
+    public static KeywordRemovedEvent Instance(string code) => new(code);
 }

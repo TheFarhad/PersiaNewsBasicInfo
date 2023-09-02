@@ -1,4 +1,4 @@
-﻿namespace BasicInfo.Core.Domain.Keywords.Aggregate.Exception.Entities;
+﻿namespace BasicInfo.Core.Domain.Keywords.Aggregate.Exception.References;
 
 using Sky.App.Core.Domain.Aggregate;
 

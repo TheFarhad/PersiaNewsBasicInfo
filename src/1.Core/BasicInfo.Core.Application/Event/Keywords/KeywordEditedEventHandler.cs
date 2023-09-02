@@ -1,7 +1,7 @@
-﻿namespace BasicInfo.Core.Application.Event;
+﻿namespace BasicInfo.Core.Application.Event.Keywords;
 
-using Domain.Keywords.Aggregate.Event;
 using Sky.App.Core.Contract.Services.Event;
+using Domain.Keywords.Aggregate.Event;
 
 public class KeywordEditedEventHandler : IEventHandler<KeywordEditedEvent>
 {

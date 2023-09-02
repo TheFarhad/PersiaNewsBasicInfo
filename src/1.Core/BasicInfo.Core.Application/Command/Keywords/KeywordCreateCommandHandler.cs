@@ -17,9 +17,9 @@ public class KeywordCreateCommandHandler : CommandHandler<KeywordCreateCommand, 
 
     public override async Task<CommandResult<KeywordCreatePayload>> HandleAsync(KeywordCreateCommand Source)
     {
-        var keyword = Keyword.Instnce(Source.Title, Source.Description, KeywordStatus.Instance(Source.Status));
-        await _repository.AddAsync(keyword);
+        var model = Keyword.Instnce(Source.Title, Source.Description, KeywordStatus.Instance(Source.Status));
+        await _repository.AddAsync(model);
         await _repository.SaveAsync();
-        return await OK(new KeywordCreatePayload { Id = keyword.Id });
+        return await OK(new KeywordCreatePayload { Id = model.Id });
     }
 }

@@ -4,13 +4,13 @@ using System;
 using System.Collections.Generic;
 using Sky.App.Core.Contract.Services.Query;
 
-public class KeywordSearchByTitleAndStatusQuery : PageQuery<KeywordSearchResult>
+public class KeywordSearchByTitleAndStatusQuery : PageQuery<KeywordSearchByTitleAndStatusPayload>
 {
     public string Title { get; set; }
     public string Status { get; set; }
 }
 
-public class KeywordSearchResult
+public class KeywordSearchByTitleAndStatusPayload
 {
     public List<KeywordSearchItem> Items { get; set; } = new();
     public int Total { get; set; }

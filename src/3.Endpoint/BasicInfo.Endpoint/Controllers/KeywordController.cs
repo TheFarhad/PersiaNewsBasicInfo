@@ -10,10 +10,10 @@ using Core.Contract.Service.Query.Keywords;
 public class KeywordController : ApiController
 {
     [HttpPost("/list-keyword")]
-    public async Task<IActionResult> SearchAsync(KeywordSearchByTitleAndStatusQuery source) =>
-        await GetAsync<KeywordSearchByTitleAndStatusQuery, KeywordSearchResult>(source);
+    public async Task<IActionResult> SearchByTitleAndStatusAsync(KeywordSearchByTitleAndStatusQuery source) =>
+        await GetAsync<KeywordSearchByTitleAndStatusQuery, KeywordSearchByTitleAndStatusPayload>(source);
 
-    [HttpPost("/create-keyword")]
+    [HttpPost("/add-keyword")]
     public async Task<IActionResult> CreateAsync(KeywordCreateCommand source) =>
         await AddAsync<KeywordCreateCommand, KeywordCreatePayload>(source);
 

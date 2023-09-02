@@ -12,7 +12,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Keywords\Aggregate\Exception\ValueObjects\" />
+	  <Folder Include="Categories\Enumers\" />
+	  <Folder Include="Categories\Exceptions\References\" />
+	  <Folder Include="Categories\Exceptions\Elements\" />
+	  <Folder Include="Categories\References\" />
+	  <Folder Include="Categories\Services\" />
+	  <Folder Include="Keywords\Aggregate\Exception\Elements\" />
 	  <Folder Include="Shared\" />
 	</ItemGroup>
 

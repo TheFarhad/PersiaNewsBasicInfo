@@ -5,5 +5,5 @@ using Service.Query.Keywords;
 
 public interface IKeywordQueryRepository : IQueryRepository
 {
-    Task<KeywordSearchResult> ListAsync(KeywordSearchByTitleAndStatusQuery source);
+    Task<KeywordSearchByTitleAndStatusPayload> ListAsync(KeywordSearchByTitleAndStatusQuery source);
 }

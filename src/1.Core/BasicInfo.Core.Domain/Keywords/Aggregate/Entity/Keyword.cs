@@ -4,7 +4,7 @@ using Sky.Kernel.Shared;
 using Sky.App.Core.Domain.Aggregate;
 using Event;
 using Enumers;
-using BasicInfo.Core.Domain.Keywords.Aggregate.ValueObject;
+using ValueObject;
 
 public class Keyword : Aggregate
 {
@@ -14,13 +14,14 @@ public class Keyword : Aggregate
 
     private Keyword() { }
     private Keyword(KeywordTitle title, KeywordDescription description, KeywordStatus status) =>
-        Init(title, description, status, () => { });
+        Init(title, description, status, null);
 
     public static Keyword Instnce(KeywordTitle title, KeywordDescription description, KeywordStatus status) =>
         new Keyword(title, description, status);
 
     private void Init(KeywordTitle title, KeywordDescription description, KeywordStatus status, Act action)
     {
+        // validations...
         Apply(KeywordCreatedEvent.Instance(Code.Value, title.Value, description.Value, status.Value));
         action?.Invoke();
     }
@@ -29,14 +30,14 @@ public class Keyword : Aggregate
          Apply(KeywordEditedEvent.Instance(Code.Value, title.Value, description.Value, status.Value));
 
     private void On(KeywordCreatedEvent source) =>
-        SetProperties(source.Code, source.Title, source.Description, source.Status);
+        SetProperties(/*source.Code,*/ source.Title, source.Description, source.Status);
 
     private void On(KeywordEditedEvent source) =>
-        SetProperties(source.Code, source.Title, source.Description, source.Status);
+        SetProperties(/*source.Code,*/ source.Title, source.Description, source.Status);
 
-    private void SetProperties(Guid code, string title, string description, string status)
+    private void SetProperties(/*Guid code, */string title, string description, string status)
     {
-        Code = code;
+        //Code = code;
         Title = title;
         Description = description;
         Status = KeywordStatus.Instance(status);

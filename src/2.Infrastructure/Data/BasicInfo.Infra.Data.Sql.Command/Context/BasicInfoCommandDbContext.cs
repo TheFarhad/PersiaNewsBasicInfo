@@ -2,11 +2,13 @@
 
 using Microsoft.EntityFrameworkCore;
 using Sky.App.Infra.Data.Sql.Command;
+using Core.Domain.Categories.Source;
 using Core.Domain.Keywords.Aggregate.Entity;
 
 public class BasicInfoCommandDbContext : EventSourcingCommandDbContext
 {
     public DbSet<Keyword> Keywords => Set<Keyword>();
+    public DbSet<Category> Categories => Set<Category>();
 
     private BasicInfoCommandDbContext() { }
     public BasicInfoCommandDbContext(DbContextOptions<BasicInfoCommandDbContext> options) : base(options) { }
