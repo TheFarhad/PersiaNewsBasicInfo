@@ -1,10 +1,10 @@
 ﻿namespace BasicInfo.Core.Domain.Categories.Source;
 
-using Sky.App.Core.Domain.Aggregate;
+using Sky.App.Core.Domain.Aggregate.Entity;
 using Events;
 using Elements;
 
-public class Category : Aggregate
+public class Category : Source
 {
     public CategoryTitle Title { get; private set; }
     public CategoryDescription Description { get; private set; }

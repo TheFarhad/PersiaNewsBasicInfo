@@ -5,11 +5,9 @@ using Sky.App.Endpoint.Api.Controller;
 using Core.Contract.Service.Command.Categories;
 using Core.Contract.Service.Query.Categories;
 
-[ApiController]
-[Route("api/[Controller]")]
 public class CategoryController : ApiController
 {
-    [HttpGet("/list-category")]
+    [HttpPost("/list-category")]
     public async Task<IActionResult> SearchByTitleAsync(CategorySearchByTitleQuery source) =>
         await GetAsync<CategorySearchByTitleQuery, CategorySearchByTitlePayload>(source);
 

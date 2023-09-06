@@ -7,6 +7,7 @@ using Core.Contract.Infra.Command;
 using Domain.Keywords.Aggregate.Entity;
 using Contract.Service.Command.Keywords;
 using Domain.Keywords.Aggregate.Enumers;
+using Sky.App.Core.Domain.Shared.ValueObjects;
 
 public class KeywordCreateCommandHandler : CommandHandler<KeywordCreateCommand, KeywordCreatePayload>
 {
@@ -15,9 +16,9 @@ public class KeywordCreateCommandHandler : CommandHandler<KeywordCreateCommand, 
     public KeywordCreateCommandHandler(IKeywordCommandRepository repository) =>
         _repository = repository;
 
-    public override async Task<CommandResult<KeywordCreatePayload>> HandleAsync(KeywordCreateCommand Source)
+    public override async Task<CommandResult<KeywordCreatePayload>> HandleAsync(KeywordCreateCommand source)
     {
-        var model = Keyword.Instnce(Source.Title, Source.Description, KeywordStatus.Instance(Source.Status));
+        var model = Keyword.Instnce(source.Title, source.Description, KeywordStatus.Instance(source.Status));
         await _repository.AddAsync(model);
         await _repository.SaveAsync();
         return await OK(new KeywordCreatePayload { Id = model.Id });

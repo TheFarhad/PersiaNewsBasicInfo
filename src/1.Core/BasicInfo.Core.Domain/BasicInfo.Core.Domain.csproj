@@ -7,7 +7,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Sky.App.Core.Domain" Version="1.1.1" />
+		<PackageReference Include="Sky.App.Core.Domain" Version="1.2.1" />
 		<PackageReference Include="Sky.Kernel" Version="1.0.4" />
 	</ItemGroup>
 

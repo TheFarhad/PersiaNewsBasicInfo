@@ -1,8 +1,8 @@
 ﻿namespace BasicInfo.Core.Domain.Categories.Elements;
 
-using Sky.App.Core.Domain.Shared;
+using Sky.App.Core.Domain.Shared.ValueObjects;
 
-public class CategoryTitle : Title
+public class CategoryTitle : EString
 {
     private CategoryTitle() { }
     private CategoryTitle(string value) : base(value, 2, 100) { }

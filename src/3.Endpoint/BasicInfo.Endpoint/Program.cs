@@ -1,6 +1,4 @@
-using BasicInfo.Endpoint.Extentions;
+using BasicInfo.Endpoint.Host;
 
-WebApplication
-    .CreateBuilder(args)
-    .HostingWireup();
+Service.Host(args);
 

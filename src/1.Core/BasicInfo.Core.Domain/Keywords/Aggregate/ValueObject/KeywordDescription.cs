@@ -1,8 +1,8 @@
 ﻿namespace BasicInfo.Core.Domain.Keywords.Aggregate.ValueObject;
 
-using Sky.App.Core.Domain.Shared;
+using Sky.App.Core.Domain.Shared.ValueObjects;
 
-public class KeywordDescription : Description
+public class KeywordDescription : EString
 {
     private KeywordDescription() { }
     private KeywordDescription(string value) : base(value, 3, 500) { }

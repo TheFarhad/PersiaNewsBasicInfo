@@ -6,11 +6,11 @@ using Sky.App.Infra.Data.Sql.Command;
 using Sky.App.Core.Contract.Infra.Command;
 using Context;
 using Core.Contract.Infra.Command;
-using Core.Domain.Keywords.Aggregate.Entity;
+using Core.Domain.Categories.Source;
 
-public class KeywordCommandRepository : CommandRepository<Keyword, BasicInfoCommandDbContext>, IKeywordCommandRepository
+public class CategoryCommandRepository : CommandRepository<Category, BasicInfoCommandDbContext>, ICategoryCommandRepository
 {
-    public KeywordCommandRepository(BasicInfoCommandDbContext context) : base(context) { }
+    public CategoryCommandRepository(BasicInfoCommandDbContext context) : base(context) { }
 
     public async Task<List<OutboxEvent>> Get(int maxCount = 100) =>
         await _context

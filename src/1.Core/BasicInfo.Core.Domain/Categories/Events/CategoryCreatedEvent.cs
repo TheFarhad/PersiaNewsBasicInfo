@@ -1,6 +1,6 @@
 ﻿namespace BasicInfo.Core.Domain.Categories.Events;
 
-using Sky.App.Core.Domain.Aggregate;
+using Sky.App.Core.Domain.Aggregate.Event;
 
 public class CategoryCreatedEvent : IEvent
 {

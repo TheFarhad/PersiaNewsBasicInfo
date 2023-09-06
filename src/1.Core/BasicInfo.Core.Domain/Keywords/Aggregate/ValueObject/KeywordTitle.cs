@@ -1,8 +1,8 @@
 ﻿namespace BasicInfo.Core.Domain.Keywords.Aggregate.ValueObject;
 
-using Sky.App.Core.Domain.Shared;
+using Sky.App.Core.Domain.Shared.ValueObjects;
 
-public class KeywordTitle : Title
+public class KeywordTitle : EString
 {
     private KeywordTitle() { }
     private KeywordTitle(string value) : base(value, 3, 100) { }

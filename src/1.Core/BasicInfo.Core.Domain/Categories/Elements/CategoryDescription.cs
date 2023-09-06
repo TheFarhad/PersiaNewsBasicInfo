@@ -1,8 +1,8 @@
 ﻿namespace BasicInfo.Core.Domain.Categories.Elements;
 
-using Sky.App.Core.Domain.Shared;
+using Sky.App.Core.Domain.Shared.ValueObjects;
 
-public class CategoryDescription : Description
+public class CategoryDescription : EString
 {
     private CategoryDescription() { }
     private CategoryDescription(string value) : base(value, 2, 500) { }

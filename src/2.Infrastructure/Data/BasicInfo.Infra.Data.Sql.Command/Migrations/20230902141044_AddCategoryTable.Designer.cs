@@ -4,6 +4,7 @@ using BasicInfo.Infra.Data.Sql.Command.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BasicInfo.Infra.Data.Sql.Command.Migrations
 {
     [DbContext(typeof(BasicInfoCommandDbContext))]
-    partial class BasicInfoCommandDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230902141044_AddCategoryTable")]
+    partial class AddCategoryTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

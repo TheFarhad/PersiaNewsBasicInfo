@@ -1,6 +1,6 @@
 ﻿namespace BasicInfo.Core.Domain.Keywords.Aggregate.Event;
 
-using Sky.App.Core.Domain.Aggregate;
+using Sky.App.Core.Domain.Aggregate.Event;
 
 public class KeywordEditedEvent : IEvent
 {
