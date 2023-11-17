@@ -7,7 +7,6 @@ using Core.Contract.Infra.Command;
 using Domain.Keywords.Aggregate.Entity;
 using Contract.Service.Command.Keywords;
 using Domain.Keywords.Aggregate.Enumers;
-using Sky.App.Core.Domain.Shared.ValueObjects;
 
 public class KeywordCreateCommandHandler : CommandHandler<KeywordCreateCommand, KeywordCreatePayload>
 {

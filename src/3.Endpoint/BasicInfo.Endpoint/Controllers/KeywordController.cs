@@ -5,6 +5,8 @@ using Sky.App.Endpoint.Api.Controller;
 using Core.Contract.Service.Command.Keywords;
 using Core.Contract.Service.Query.Keywords;
 
+[ApiController]
+[Route("api/[controller]")]
 public class KeywordController : ApiController
 {
     [HttpPost("/list-keyword")]

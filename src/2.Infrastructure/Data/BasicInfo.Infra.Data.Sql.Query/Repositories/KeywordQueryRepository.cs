@@ -25,9 +25,9 @@ public class KeywordQueryRepository : QueryRepository<BasicInfoQueryDbContext>, 
         if (source.Status.IsNotEmpty()) query = query.Where(_ => _.Status == source.Status);
 
         result.Items = await query
-            .OrderBy(source.SortBy, source.SortAscending)
             .Skip(source.Skip)
             .Take(source.Size)
+            .OrderBy(source.SortBy, source.SortAscending)
             .Select(_ => new KeywordSearchItem
             {
                 Id = _.Id,

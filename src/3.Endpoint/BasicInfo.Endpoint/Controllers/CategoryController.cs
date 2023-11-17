@@ -5,6 +5,8 @@ using Sky.App.Endpoint.Api.Controller;
 using Core.Contract.Service.Command.Categories;
 using Core.Contract.Service.Query.Categories;
 
+[ApiController]
+[Route("api/[controller]")]
 public class CategoryController : ApiController
 {
     [HttpPost("/list-category")]

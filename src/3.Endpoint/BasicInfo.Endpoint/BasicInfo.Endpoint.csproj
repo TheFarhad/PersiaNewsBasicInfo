@@ -7,6 +7,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<PackageReference Include="RabbitMQ.Client" Version="6.6.0" />
 		<PackageReference Include="Sky.Kernel" Version="1.0.4" />
 		<PackageReference Include="Sky.Kernel.Identity" Version="1.0.2" />
 		<PackageReference Include="Sky.Kernel.Serializing" Version="1.0.1" />
