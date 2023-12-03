@@ -55,7 +55,7 @@ internal static class Service
             source.UseSwagger();
             source.UseSwaggerUI();
         }
-        source.UseHttpsRedirection();
+        //source.UseHttpsRedirection();
         source.UseAuthorization();
         source.MapControllers();
         source.Run();

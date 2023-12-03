@@ -9,19 +9,19 @@ using Core.Contract.Service.Query.Categories;
 [Route("api/[controller]")]
 public class CategoryController : ApiController
 {
-    [HttpPost("/list-category")]
+    [HttpPost("list-category")]
     public async Task<IActionResult> SearchByTitleAsync(CategorySearchByTitleQuery source) =>
         await GetAsync<CategorySearchByTitleQuery, CategorySearchByTitlePayload>(source);
 
-    [HttpPost("/add-category")]
+    [HttpPost("add-category")]
     public async Task<IActionResult> AddAsync(CategoryCreateCommand source) =>
         await AddAsync<CategoryCreateCommand, CategoryCreatePayload>(source);
 
-    [HttpPost("/edit-category")]
+    [HttpPost("edit-category")]
     public async Task<IActionResult> EditAsync(CategoryEditCommand source) =>
        await EditAsync<CategoryEditCommand, CategoryEditPayload>(source);
 
-    [HttpPost("/remove-category")]
+    [HttpPost("remove-category")]
     public async Task<IActionResult> RemoveAsync(CategoryRemoveCommand source) =>
      await RemoveAsync<CategoryRemoveCommand, CategoryRemovePayload>(source);
 }

@@ -9,19 +9,19 @@ using Core.Contract.Service.Query.Keywords;
 [Route("api/[controller]")]
 public class KeywordController : ApiController
 {
-    [HttpPost("/list-keyword")]
+    [HttpPost("list-keyword")]
     public async Task<IActionResult> SearchByTitleAndStatusAsync(KeywordSearchByTitleAndStatusQuery source) =>
         await GetAsync<KeywordSearchByTitleAndStatusQuery, KeywordSearchByTitleAndStatusPayload>(source);
 
-    [HttpPost("/add-keyword")]
+    [HttpPost("add-keyword")]
     public async Task<IActionResult> CreateAsync(KeywordCreateCommand source) =>
         await AddAsync<KeywordCreateCommand, KeywordCreatePayload>(source);
 
-    [HttpPost("/edit-keyword")]
+    [HttpPost("edit-keyword")]
     public async Task<IActionResult> EditAsync(KeywordEditCommand source) =>
         await EditAsync<KeywordEditCommand, KeywordEditPayload>(source);
 
-    [HttpPost("/remove-keyword")]
+    [HttpPost("remove-keyword")]
     public async Task<IActionResult> RemoveAsync(KeywordRemoveCommand source) =>
        await RemoveAsync<KeywordRemoveCommand>(source);
 }
